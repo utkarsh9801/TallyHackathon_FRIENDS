@@ -1,0 +1,30 @@
+{% extends 'Quiz/dependencies.html' %}
+
+{% block content %}
+<style>
+    #former4{
+        color: black;
+
+    }
+    .textcolormaker{
+        color: white;
+    }
+</style>
+
+<div class="">
+    <div class="col-md-6" id = "former4">
+        <h1 class = "textcolormaker" >Add Question</h1>
+        <div class="card card-body">
+           <form action="" method="POST">
+              {% csrf_token %}
+                {{form.as_p}}
+                <br>
+             <input type="submit" name="Submit">
+             </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

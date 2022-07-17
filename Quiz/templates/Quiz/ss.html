@@ -1,0 +1,31 @@
+{% extends 'Quiz/dependencies.html' %}
+{% block content %}
+{% load static %}
+
+
+    <p>
+    {% if not user.is_authenticated %}
+    <h1>Welcome To Quizziz</h1>
+
+    <img src="https://thumbs.dreamstime.com/b/quiz-word-red-d-letters-to-illustrate-exam-evaluation-assessment-to-measure-your-knowledge-expertise-44060147.jpg"  alt="Quizziz" height="65%" , width="65%">
+    <h2> To Play Quiz Please Login</h2>
+    <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    {% else %}
+        {% if not user.is_superuser %}
+            <h2>You are logged in {{user}}</h2>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Welcome_heading.svg/1022px-Welcome_heading.svg.png'  alt="admin" height="500" , width="1550">
+            <h3> Click on Button to start the quiz</h3>
+            <a href="{% url 'home' %}" class="btn btn-success" >Start Quiz</a>
+
+        {% else %}
+            <h2>Welcome Admin {{user}}</h2>
+            <img src="https://thumbs.dreamstime.com/b/admin-login-sign-made-wood-table-admin-login-sign-made-wood-table-197823311.jpg"  alt="user" height="400" , width="700">
+
+            <h3> Click on Button to Create Quiz</h3>
+            <a href="{% url 'addQuestion' %}" class="btn btn-success" >Create New Quiz</a>
+            <h3> Click on Button to Go to Admin Panel</h3>
+            <a href="{% url 'admin' %}" class="btn btn-success" >Admin Panel</a>
+        {% endif %}
+{% endif %}
+{% endblock %}

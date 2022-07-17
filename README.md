@@ -1,1 +1,1 @@
-# TallyHackathon_FRIENDS
+# Tally_Main_Hackathon
